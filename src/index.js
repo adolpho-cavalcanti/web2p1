@@ -15,4 +15,4 @@ require('./controllers/authController')(app);
 require('./controllers/boxController')(app);
 require('./controllers/FileController')(app);
 
-app.listen(3333);
+app.listen(process.env.PORT ||3333);
