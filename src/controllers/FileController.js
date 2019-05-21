@@ -12,7 +12,7 @@ const router = express.Router();
 router.use(authMiddleware);
 
 //Criar Arquivo
-router.post('/', async (req, res) => {
+router.post('/file', async (req, res) => {
     try {
         const file = await File.create({ 
             title: req.file.originalname,
@@ -54,4 +54,4 @@ router.get('/:fileId', async (req, res) => {
     }
 });
 
-module.exports = app => app.use('/files', multer(multerConfig).single('file'), router);
+module.exports = app => app.use('/', multer(multerConfig).single('file'), router);

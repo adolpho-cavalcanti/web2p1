@@ -1,0 +1,13 @@
+    <h1>Selecione o Vídeo:</h1>
+    <form action="/file" enctype="multipart/form-data" method="POST">
+        <div class="form-group">
+            <label for="file">Selecione o arquivo:</label>
+            <input type="file" name="file" id="file" accept="video/*" class="form-control <%= (typeof errors != 'undefined' && typeof file != 'undefined') ? "is-invalid" : "is-valid" %>"><br><br>
+            <% if(typeof errors != 'undefined' && typeof file != 'undefined'){ %>
+                <div class="invalid-feedback"><%= file %></div>
+            <% } %>
+        </div>
+        <div class="form-group">
+            <input type="submit">
+        </div>
+    </form>

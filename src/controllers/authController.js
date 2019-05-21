@@ -34,7 +34,7 @@ router.post('/register', async (req, res) => {
       }
 });
 
-router.post('/authenticate', async (req, res) => {
+router.post('/auth', async (req, res) => {
     const { email, password } = req.body
     
     const user = await User.findOne({ email }).select('+password');
@@ -54,4 +54,4 @@ router.post('/authenticate', async (req, res) => {
 });
 
 
-module.exports = app => app.use('/auth', router);
+module.exports = app => app.use('/', router);
